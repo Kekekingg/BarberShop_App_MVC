@@ -22,3 +22,4 @@ Controller → handles logic and interactions 🔄
 
 🌟 Portfolio Value  
 Overall, this barbershop app offers a professional demonstration of web development skills. It highlights effective database integration 🗄️, secure user authentication 🔒, and comprehensive service management in a practical, real-world context. 
+<img width="1920" height="1280" alt="Barber Shop Login" src="https://github.com/user-attachments/assets/9764b7a2-f0dc-443d-bd9d-473c8845a19d" />
