@@ -1,6 +1,10 @@
 <h1 class="page-name">Create Account</h1>
 <p class="page-description">Please fill out the following form to create an account</p>
 
+<?php 
+    include_once __DIR__ . "/../templates/alerts.php"
+?>
+
 <form action="/create-account" class="form" method="POST">
     <div class="form-field">
         <label for="name">Name</label>
@@ -9,6 +13,7 @@
             id="name"
             name="name"
             placeholder="Your Name"
+            value="<?php echo san($user->name); ?>"
         />
     </div>
 
@@ -19,6 +24,7 @@
             id="last_name"
             name="last_name"
             placeholder="Your Last Name"
+            value="<?php echo san($user->last_name); ?>"
         />
     </div>
 
@@ -28,9 +34,8 @@
             type="tel"
             id="phone"
             name="phone"
-            pattern="[0-9]"
-            inputmode="numeric"
             placeholder="Your Phone Number"
+            value="<?php echo san($user->phone); ?>"
         />
     </div>
 
@@ -41,6 +46,7 @@
             id="email"
             name="email"
             placeholder="Your E-mail"
+            value="<?php echo san($user->email); ?>"
         />
     </div>
 

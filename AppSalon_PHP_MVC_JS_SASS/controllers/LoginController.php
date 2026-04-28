@@ -2,12 +2,13 @@
 
 namespace Controllers;
 
+use Model\User;
 use MVC\Router;
 
 class LoginController {
     public static function login (Router $router) {
 
-        
+
         $router->render('auth/login');
     }
 
@@ -16,7 +17,7 @@ class LoginController {
     }
 
     public static function forget (Router $router) {
-    
+
         $router->render('auth/forget-password', [
 
         ]);
@@ -27,10 +28,22 @@ class LoginController {
     }
 
     public static function create (Router $router) {
-        
+
+        $user = new User($_POST);
+
+        //Empty Alerts
+        $alerts = [];
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $user->synchronize($_POST);
+            $alerts = $user->validateNewAcc();
+
+        }
 
         $router->render('auth/create-account', [
-
+            'user' => $user,
+            'alerts' => $alerts
         ]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-function debuguear($variable) : string {
+function debuggin($variable) : string {
     echo "<pre>";
     var_dump($variable);
     echo "</pre>";
@@ -8,7 +8,7 @@ function debuguear($variable) : string {
 }
 
 // Escape / Sanitize the HTML
-function s($html) : string {
+function san($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }

@@ -7,7 +7,7 @@ class ActiveRecord {
     protected static $table = '';
     protected static $columnsDB = [];
 
-    protected static $id; // -> ELIMINAR SI FALLA LA BD
+    public $id; // -> ELIMINAR SI FALLA LA BD
 
     // Alerts and messages
     protected static $alerts = [];
