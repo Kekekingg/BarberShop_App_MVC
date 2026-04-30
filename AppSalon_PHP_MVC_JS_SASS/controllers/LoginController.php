@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Classes\Email;
 use Model\User;
 use MVC\Router;
 
@@ -38,6 +39,29 @@ class LoginController {
 
             $user->synchronize($_POST);
             $alerts = $user->validateNewAcc();
+
+            // Check that the alerts are empty
+            if(empty($alerts)) {
+                // Check that the user is not registered
+                $result = $user->userExist();
+
+                if($result->num_rows) {
+                    $alerts = User::getAlerts();
+                } else {
+                    // Hashing password
+                    $user->hashPassword();
+
+                    // Generate a uniq token
+                    $user->createToken();
+
+                    // Send Email
+                    $email = new Email($user->name, $user->email, $user->token);
+
+                    $email->sendConfirmation();
+                    debuggin($user);
+                }
+            }
+
 
         }
 

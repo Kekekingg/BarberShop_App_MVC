@@ -31,13 +31,46 @@ class User extends ActiveRecord {
     // Validation messages for creating an account
     public function validateNewAcc() {
         if(!$this->name) {
-            self::$alerts['error'][] = "The customer's name is required";
+            self::$alerts['error'][] = "The name is required";
         }
 
         if(!$this->last_name) {
-            self::$alerts['error'][] = "The customer's last name is required";
+            self::$alerts['error'][] = "The last name is required";
+        }
+
+        if(!$this->email) {
+            self::$alerts['error'][] = "The Email is required";
+        }
+        
+        if(!$this->password) {
+            self::$alerts['error'][] = "Password is required";
+        }
+
+        if(strlen($this->password) < 6) {
+            self::$alerts['error'][] = "The password must be at least 6 characters long";
         }
         return self::$alerts;
+    }
+
+    // Check if the user exist
+    public function userExist () {
+        $query = "SELECT * FROM " . self::$table . " WHERE email = '" . $this->email . "' LIMIT 1";
+
+        $result = self::$db->query($query);
+
+        if($result->num_rows) {
+            self::$alerts['error'][] = 'User already registered';
+        }
+
+        return $result;
+    }
+
+    public function hashPassword () {
+        $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+    }
+
+    public function createToken () {
+        $this->token = uniqid();
     }
 
 }
