@@ -29,4 +29,4 @@ class Email {
         $mail->setFrom('accounts@appsalon.com');
         $mail->addAddress('accounts@appsalon.com', 'AppSalon.com');
     }
-}
+}         
