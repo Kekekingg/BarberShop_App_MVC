@@ -58,7 +58,14 @@ class LoginController {
                     $email = new Email($user->name, $user->email, $user->token);
 
                     $email->sendConfirmation();
-                    debuggin($user);
+
+                    // Create user
+                    $result = $user->save();
+                    // debuggin($user);
+                    if($result) {
+                        header('Location: /message');
+                    }
+
                 }
             }
 
@@ -67,6 +74,37 @@ class LoginController {
 
         $router->render('auth/create-account', [
             'user' => $user,
+            'alerts' => $alerts
+        ]);
+    }
+
+    public static function message (Router $router) {
+
+        $router->render('auth/message');
+    }
+
+    public static function confirm (Router $router) {
+
+        $alerts = [];
+        $token = san($_GET['token']);
+        $user = User::where('token', $token);
+
+        if(empty($user)) {
+            // Show error message
+            User::setAlert('error', 'Invalid Token');
+        } else {
+            // Show user confirmed
+            $user->confirmed = "1";
+            $user->token = null;
+            $user->save();
+            User::setAlert('success', 'Account Successfully Confirmed');
+        }
+
+        // Get alerts
+        $alerts = User::getAlerts();
+
+        // Render the layout
+        $router->render('auth/confirm-account', [
             'alerts' => $alerts
         ]);
     }

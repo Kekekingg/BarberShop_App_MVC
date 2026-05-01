@@ -25,6 +25,10 @@ $router->get('/create-account', [LoginController::class, 'create']);
 $router->post('/create-account', [LoginController::class, 'create']);
 
 
+// Confirm account
+$router->get('/confirm-account', [LoginController::class, 'confirm']);
+$router->get('/message', [LoginController::class, 'message']);
+
 
 
 // Check and validate that the routes exist and assign the controller functions

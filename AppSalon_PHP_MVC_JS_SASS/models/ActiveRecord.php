@@ -62,8 +62,6 @@ class ActiveRecord {
         return $object;
     }
 
-    // Identificar y unir los atributos de la BD
-
     // Identify and join the attributes of the DB
     public function attributes() {
         $attributes = [];
@@ -79,7 +77,7 @@ class ActiveRecord {
         $attributes = $this->attributes();
         $sanitized = [];
         foreach($attributes as $key => $value ) {
-            $sanitized[$key] = self::$db->escape_string($value);
+            $sanitized[$key] = self::$db->real_escape_string((string) $value);
         }
         return $sanitized;
     }
@@ -121,8 +119,14 @@ class ActiveRecord {
     }
 
     // Get records with a certain amount
-    public static function get($limite) {
-        $query = "SELECT * FROM " . static::$table . " LIMIT {$limite}";
+    public static function get($limit) {
+        $query = "SELECT * FROM " . static::$table . " LIMIT {$limit}";
+        $result = self::querySQL($query);
+        return array_shift( $result ) ;
+    }
+
+    public static function where($column, $value) {
+        $query = "SELECT * FROM " . static::$table  ." WHERE $column = '$value'";
         $result = self::querySQL($query);
         return array_shift( $result ) ;
     }
@@ -135,9 +139,9 @@ class ActiveRecord {
         // Insert into the DB
         $query = " INSERT INTO " . static::$table . " ( ";
         $query .= join(', ', array_keys($attributes));
-        $query .= " ) VALUES (' "; 
+        $query .= " ) VALUES ('"; 
         $query .= join("', '", array_values($attributes));
-        $query .= " ') ";
+        $query .= "') ";
 
         // Query result
         $result = self::$db->query($query);
