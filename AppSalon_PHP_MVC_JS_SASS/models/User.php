@@ -85,15 +85,16 @@ class User extends ActiveRecord {
         $this->token = uniqid();
     }
 
-    public function passAndVerify(): bool {
+    public function checkPasswordAndVerify($password) {
 
-        if (!password_verify($this->password, $this->password)) {
-            User::setAlert('error', 'Password is incorrect');
-            return false;
+        $result = password_verify($password, $this->password);
+
+        if (!$result || !$this->confirmed) {
+            self::$alerts['error'][] = 'Incorrect password or you have not yet confirmed your account';
         } else {
-            User::setAlert('success', 'You have successfully logged in');
             return true;
         }
     }
+
 
 }

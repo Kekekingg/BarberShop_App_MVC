@@ -16,13 +16,31 @@ class LoginController {
 
             $alerts = $auth->validateLogin();
 
-            if(empty($alerts)) {
+            if (empty($alerts)) {
                 // Check if the user exist
                 $user = User::where('email', $auth->email);
 
                 if($user) {
-                    // Check password
-                    $user->passAndVerify();
+                    // Check Password
+                    if ($user->checkPasswordAndVerify($auth->password)) {
+                        session_start();
+
+                        $_SESSION['id'] = $user->id;
+                        $_SESSION['name'] = "{$user->name} {$user->last_name}";
+                        $_SESSION['email'] = $user->email ?? null;
+                        $_SESSION['login'] = true;
+
+                        // Redirection
+
+                        if($user->admin === '1') {
+                            $_SESSION['admin'] = $user->admin ?? null;
+
+                            header('Location: /admin');
+                        } else {
+                            header('Location: /appointment');
+                        }
+
+                    }
                 } else {
                     User::setAlert('error', 'User not found');
                 }
