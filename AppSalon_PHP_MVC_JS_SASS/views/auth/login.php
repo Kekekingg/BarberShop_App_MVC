@@ -1,6 +1,10 @@
 <h1 class="page-name">Login</h1>
 <p class="page-description">Sign in to your account</p>
 
+<?php 
+    include_once __DIR__ . '/../templates/alerts.php';
+?>
+
 <form action="/" class="form" method="post">
     <div class="form-field">
         <label for="email">Email</label>
@@ -8,7 +12,7 @@
             type="email"
             id="email"
             placeholder="Your Email"
-            name="email" 
+            name="email"
         /> 
     </div>
 
