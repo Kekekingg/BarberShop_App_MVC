@@ -64,6 +64,13 @@ class User extends ActiveRecord {
         return self::$alerts;
     }
 
+    public function validateEmail() {
+        if(!$this->email) {
+            self::$alerts['error'][] = 'Email is required';
+        }
+        return self::$alerts;
+    }
+
     // Check if the user exist
     public function userExist () {
         $query = "SELECT * FROM " . self::$table . " WHERE email = '" . $this->email . "' LIMIT 1";

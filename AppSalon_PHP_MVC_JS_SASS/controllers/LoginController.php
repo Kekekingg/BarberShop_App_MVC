@@ -61,13 +61,46 @@ class LoginController {
 
     public static function forget (Router $router) {
 
-        $router->render('auth/forget-password', [
+        $alerts = [];
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $auth = new User($_POST);
+
+            $alerts = $auth->validateEmail();
+
+            if(empty($alerts)) {
+                $user = User::where('email', $auth->email);
+
+                if($user && $user->confirmed === "1") {
+                    // Generate a Token
+                    $user->createToken();
+                    $user->save();
+
+                    // Send Email
+                    $email = new Email($user->email, $user->name, $user->token);
+                    $email->sendInstructions();
+
+                    // Success Alert
+                    User::setAlert('success', 'Check your email');
+
+                } else {
+                    User::setAlert('error', 'The user does not exist or is not confirmed');
+                }
+            }
+        }
+
+        $alerts = User::getAlerts();
+
+        $router->render('auth/forget-password', [
+            'alerts' => $alerts
         ]);
     }
 
-    public static function recover () {
-        echo "From Recover";
+    public static function recover (Router $router) {
+
+        $router->render('auth/recover-password', [
+            
+        ]);
     }
 
     public static function create (Router $router) {
@@ -97,7 +130,7 @@ class LoginController {
                     $user->createToken();
 
                     // Send Email
-                    $email = new Email($user->name, $user->email, $user->token);
+                    $email = new Email($user->email, $user->name, $user->token);
 
                     $email->sendConfirmation();
 

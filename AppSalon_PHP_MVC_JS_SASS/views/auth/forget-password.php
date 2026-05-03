@@ -1,6 +1,10 @@
 <h1 class="page-name">Forget My Password</h1>
 <p class="page-description">Reset your password by entering your email address</p>
 
+<?php 
+    include_once __DIR__ . "/../templates/alerts.php"
+?>
+
 <form action="/forget" class="form" method="POST">
     <div class="form-field">
         <label for="email">Email</label>
