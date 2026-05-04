@@ -71,6 +71,18 @@ class User extends ActiveRecord {
         return self::$alerts;
     }
 
+    public function validatePassword () {
+        if(!$this->password) {
+            self::$alerts['error'][] = 'Password is required';
+        }
+
+        if(strlen($this->password) < 6 ) {
+            self::$alerts['error'][] = 'Password must be longer than 6 characters';
+        }
+
+        return self::$alerts;
+    }
+
     // Check if the user exist
     public function userExist () {
         $query = "SELECT * FROM " . self::$table . " WHERE email = '" . $this->email . "' LIMIT 1";

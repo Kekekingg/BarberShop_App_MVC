@@ -1,11 +1,16 @@
 <h1 class="page-name">Recover Password</h1>
 <p class="page-description">Enter your new password</p>
 
+<?php 
+    include_once __DIR__ . '/../templates/alerts.php';
+?>
+
+<?php if($error ?? null) return null ?>
 <form class="form" method="POST">
 
     <div class="form-field">
         <label for="password">Password</label>
-        <input 
+        <input
             type="password"
             id="password"
             name="password"

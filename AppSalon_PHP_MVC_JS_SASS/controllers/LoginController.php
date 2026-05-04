@@ -7,6 +7,7 @@ use Model\User;
 use MVC\Router;
 
 class LoginController {
+    
     public static function login (Router $router) {
 
         $alerts = [];
@@ -98,8 +99,44 @@ class LoginController {
 
     public static function recover (Router $router) {
 
+        $alerts = [];
+        $error = false;
+
+        $token = san($_GET['token']);
+
+        // Search user by token
+        $user = User::where('token', $token);
+
+        if(empty($user)) {
+            User::setAlert('error', 'Invalid Token');
+            $error = true;
+        }
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Read the new password and save it
+
+            $password = new User($_POST);
+            $alerts = $password->validatePassword();
+
+            if(empty($alerts)) {
+
+                $user->password = null;
+
+                $user->password = $password->password;
+                $user->hashPassword();
+                $user->token = null;
+
+                $result = $user->save();
+                if($result) {
+                    header('Location: /');
+                }
+            }
+        }
+
+        $alerts = User::getAlerts();
         $router->render('auth/recover-password', [
-            
+            'alerts' => $alerts,
+            'error' => $error
         ]);
     }
 
