@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\AppointmentController;
 use Controllers\LoginController;
 use MVC\Router;
 
@@ -28,6 +29,9 @@ $router->post('/create-account', [LoginController::class, 'create']);
 // Confirm account
 $router->get('/confirm-account', [LoginController::class, 'confirm']);
 $router->get('/message', [LoginController::class, 'message']);
+
+// Private Area
+$router->get('/appointment', [AppointmentController::class, 'index']);
 
 
 
