@@ -1,0 +1,19 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.pagination {
+    padding: v.$separation 0;
+
+    @include m.phone {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        margin: 0 0 1rem 0;
+    }
+}
+
+.hide {
+    visibility: hidden; /* Helps to hide te previous button without moving the next button to the left */
+}

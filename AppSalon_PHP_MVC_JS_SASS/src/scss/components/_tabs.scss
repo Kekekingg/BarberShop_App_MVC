@@ -24,7 +24,7 @@
             cursor: pointer;
             background-color: darken(v.$blue, 15%);
         }
-        &.actual {
+        &.current {
             background-color: v.$white;
             color: v.$blue;
         }

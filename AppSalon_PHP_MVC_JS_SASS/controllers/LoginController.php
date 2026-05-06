@@ -7,7 +7,6 @@ use Model\User;
 use MVC\Router;
 
 class LoginController {
-    
     public static function login (Router $router) {
 
         $alerts = [];

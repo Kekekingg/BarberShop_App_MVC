@@ -11,9 +11,12 @@
     <div class="container-app">
         <div class="image"></div>
         <div class="app">
-            <?php echo $content; ?>
+            <?php echo $content ?? ''; ?>
         </div>
     </div>
 
+    <?php 
+        echo $script ?? '';
+    ?>
 </body>
 </html>

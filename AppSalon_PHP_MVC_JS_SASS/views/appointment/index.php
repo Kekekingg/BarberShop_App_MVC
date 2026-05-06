@@ -3,7 +3,7 @@
 
 <div id="app">
     <nav class="tabs">
-        <button class="actual" type="button" data-step="1">Services</button>
+        <button class="current" type="button" data-step="1">Services</button>
         <button type="button" data-step="2">Appointment information</button>
         <button type="button" data-step="3">Summary</button>
     </nav>
@@ -17,7 +17,7 @@
         <h2>Your Details and Appointment</h2>
         <p class="text-center">Enter your details and the date of your appointment</p>
 
-        <form class="form-field">
+        <form class="form">
             <div class="form-field">
                 <label for="name">Name</label>
                 <input 
@@ -51,4 +51,24 @@
         <h2>Summary</h2>
         <p class="text-center">Check if the information is correct</p>
     </div>
+
+    <div class="pagination">
+        <button
+            id="previous"
+            class="button"
+        >&laquo; Previous</button>
+
+        <button
+            id="next"
+            class="button"
+        >Next &raquo;</button>
+    </div>
+
+    
 </div>
+
+<?php 
+    $script = "
+        <script src='build/js/app.js'></script>
+    ";
+?>
