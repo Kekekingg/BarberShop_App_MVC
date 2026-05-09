@@ -34,7 +34,8 @@
                 <input 
                     id="date"
                     type="date"
-                />
+                    min="<?php echo date('Y-m-d', strtotime('+1 day')) ?>"
+                /> <!-- Add one more day to the date-->
             </div>
 
             <div class="form-field">
@@ -47,7 +48,7 @@
         </form>
     </div>
 
-    <div id="step-3" class="section">
+    <div id="step-3" class="section content-summary">
         <h2>Summary</h2>
         <p class="text-center">Check if the information is correct</p>
     </div>
