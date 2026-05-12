@@ -3,6 +3,7 @@ const firtStep = 1;
 const lastStep = 3;
 
 const appointment = {
+    id: '',
     name: '',
     date: '',
     time: '',
@@ -22,6 +23,7 @@ function startApp () {
 
     consultAPI(); // Consult the API in the Back-end
 
+    idClient();
     nameClient(); // Add the client name to the appointment object
     selectDate(); // Add the date to the appointment in the object
     selectTime(); // Add the time to the appointment in the object
@@ -164,7 +166,10 @@ function selectService (service) {
         appointment.services = [...services, service];
         divService.classList.add('selected');
     }
-    console.log(appointment);
+}
+
+function idClient () {
+    appointment.id = document.querySelector('#id').value;
 }
 
 function nameClient() {
@@ -195,19 +200,20 @@ function selectTime() {
         const time = appointmentTime.split(":")[0]; // Split separte a string
         if (time < 10 || time >= 18) {
             e.target.value = ''; // For not saving the time
-            showAlert('Invalid Time', 'error');
+            showAlert('Invalid Time', 'error', '.form');
         } else {
             appointment.time = e.target.value;
         }
     })
 }
 
-function showAlert(message, type) {
+function showAlert(message, type, element, disappears = true) {
 
     // Avoid generating more than 1 alert 
     const earlyAlert = document.querySelector('.alert');
-
-    if (earlyAlert) return;
+    if (earlyAlert) {
+        earlyAlert.remove();
+    }
 
     // Scripting to create the alert
     const alert = document.createElement('DIV');
@@ -215,22 +221,144 @@ function showAlert(message, type) {
     alert.classList.add('alert');
     alert.classList.add(type);
 
-    const form = document.querySelector('#step-2 p');
-    form.appendChild(alert);
+    const reference = document.querySelector(element);
+    reference.appendChild(alert);
 
     // Delete alert
-    setTimeout(() => {
-        alert.remove();
-    }, 3000);
+    if (disappears) {
+        setTimeout(() => {
+            alert.remove();
+        }, 4000);
+    }
 }
 
 function showSummary() {
-    const summary = document.querySelector('content-summary');
+    const summary = document.querySelector('.content-summary');
 
-    // Object.values = Validates and access to the values of an object
-    if (Object.values(appointment).includes('') ) {
-        console.log('Data is needed');
-    } else {
-        console.log("Everything's fine");
+    // Clean summary content
+    while(summary.firstChild) {
+        summary.removeChild(summary.firstChild);
     }
+
+    // Object.values = Validates and access to the values of an object (Verify an object)
+    if (Object.values(appointment).includes('') || appointment.length === 0 ) {
+        showAlert('Service details, date, or time are missing', 'error', '.content-summary', false);
+
+        return;
+    }
+
+    // Format summary div
+    const {name, date, time, services} = appointment;
+
+    // Heading for summary services
+    const headingServices =  document.createElement('H3');
+    headingServices.textContent = "Services summary";
+    summary.appendChild(headingServices);
+
+    // Iterate and showing the services
+    services.forEach(service => {
+
+        const {id, price, servicename} = service;
+
+        const containerService =  document.createElement('DIV');
+        containerService.classList.add('service-container');
+
+        const serviceText = document.createElement('P');
+        serviceText.textContent = servicename;
+
+        const servicePrice = document.createElement('P');
+        servicePrice.innerHTML = `<span>Price:</span> $${price}`;
+
+        containerService.appendChild(serviceText);
+        containerService.appendChild(servicePrice);
+
+        summary.appendChild(containerService);
+    });
+
+
+    // Heading for appointment services
+    const appointmentHeading =  document.createElement('H3');
+    appointmentHeading.textContent = "Appointment summary";
+    summary.appendChild(appointmentHeading);
+
+    const clientName = document.createElement('P');
+    clientName.innerHTML = `<span>Name:</span> ${name} `;
+
+    // Format the date
+    const objDate = new Date(date);
+    const month = objDate.getMonth();
+    const day = objDate.getDate() + 2;
+    const year = objDate.getFullYear();
+
+    const dateUTC = new Date(Date.UTC(year, month, day));
+
+    const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+    const formatDate = dateUTC.toLocaleDateString('en-US', options);
+    console.log(formatDate);
+
+    const appointmentDate = document.createElement('P');
+    appointmentDate.innerHTML = `<span>Date:</span> ${date} `;
+
+    const appointmentTime = document.createElement('P');
+    appointmentTime.innerHTML = `<span>Time:</span> ${time} `;
+
+
+    // Button to create an appointment
+    const reservButton = document.createElement('BUTTON');
+    reservButton.classList.add('button');
+    reservButton.textContent = 'Book An Appointment';
+    reservButton.onclick = bookAppointment;
+
+    summary.appendChild(clientName);
+    summary.appendChild(appointmentDate);
+    summary.appendChild(appointmentTime);
+
+    summary.appendChild(reservButton);
+}
+
+async function bookAppointment() {
+
+    const {name, date, time, services, id} = appointment;
+    const idServices = services.map( service => service.id);
+
+    const data = new FormData();
+    data.append('date', date);
+    data.append('time', time);
+    data.append('userId', id);
+    data.append('services', idServices);
+
+    try {
+        // API Request
+        const url = 'http://localhost:3000/api/appointment';
+
+        // The body identifies the existence of the formdata
+        const response = await fetch(url, {
+            method: 'POST',
+            body: data
+        });
+
+        const result = await response.json();
+        console.log(result.result);
+
+        if (result.result) {
+            Swal.fire({
+                icon: "success",
+                title: "Appointment Created",
+                text: "Your Appointment has been successfully created",
+                button: "OK"
+            }).then( () => {
+                setTimeout(() => {
+                     window.location.reload();
+                }, 3000);
+            });
+        }
+    } catch (error) {
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "There was an error saving the appointment."
+        });
+    }
+
+    // console.log([...data]);
 }

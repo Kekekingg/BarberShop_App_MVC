@@ -36,6 +36,7 @@ $router->get('/appointment', [AppointmentController::class, 'index']);
 
 // API Appointments
 $router->get('/api/services', [APIController::class, 'index']);
+$router->post('/api/appointment', [APIController::class, 'save']);
 
 
 // Check and validate that the routes exist and assign the controller functions

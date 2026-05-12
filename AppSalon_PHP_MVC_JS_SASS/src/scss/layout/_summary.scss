@@ -1,0 +1,23 @@
+@use 'base/variables' as v;
+
+.content-summary {
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    span {
+        color: v.$blue;
+        font-weight:v.$bold;
+        font-size: 2.5rem;
+    }
+}
+
+.service-container {
+    padding: 3rem 0;
+    border-bottom: 1px solid v.$grey;
+
+    &:last-of-type {
+        margin-bottom: v.$separation;
+    }
+}

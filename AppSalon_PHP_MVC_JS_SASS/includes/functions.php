@@ -12,3 +12,11 @@ function san($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
+
+// function that checks that the user is authenticated
+
+function isAuth (): void {
+    if (!isset($_SESSION['login'])) {
+        header('Location: /');
+    };
+}
