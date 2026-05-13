@@ -31,4 +31,26 @@
             justify-content: center;
         }
     }
+
+    .bar {
+        margin: v.$separation 0;
+
+        @include m.tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .button {
+            @include m.button(v.$red, v.$white);
+            margin: 0;
+        }
+
+        p {
+            background-color: v.$blue;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            font-weight: v.$bold;
+        }
+    }
 }

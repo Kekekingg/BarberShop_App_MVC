@@ -56,7 +56,9 @@ class LoginController {
     }
 
     public static function logout () {
-        echo "From Logout";
+        session_start();
+        $_SESSION = [];
+        header('Location: /');
     }
 
     public static function forget (Router $router) {
@@ -77,7 +79,7 @@ class LoginController {
                     $user->save();
 
                     // Send Email
-                    $email = new Email($user->email, $user->name, $user->token);
+                    $email = new Email($user->email ?? '', $user->name ?? '', $user->token ?? '');
                     $email->sendInstructions();
 
                     // Success Alert
