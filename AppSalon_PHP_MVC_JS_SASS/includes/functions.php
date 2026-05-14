@@ -13,8 +13,14 @@ function san($html) : string {
     return $s;
 }
 
-// function that checks that the user is authenticated
+function isLast(string $current, string $next): bool {
+    if ($current !== $next) {
+        return true;
+    }
+    return false;
+}
 
+// function that checks that the user is authenticated
 function isAuth (): void {
     if (!isset($_SESSION['login'])) {
         header('Location: /');

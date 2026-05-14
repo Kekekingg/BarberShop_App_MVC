@@ -1,0 +1,21 @@
+@use 'base/variables' as v;
+
+.apptms {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding: 1rem;
+        border-top: 1px solid v.$white;
+        p {
+            font-weight: v.$bold;
+            color: v.$blue;
+        }
+
+        span,
+        .service {
+            font-weight: v.$regular;
+            color: v.$white;
+        }
+    }
+}

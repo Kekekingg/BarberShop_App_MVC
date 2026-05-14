@@ -131,6 +131,13 @@ class ActiveRecord {
         return array_shift( $result ) ;
     }
 
+    // Plain SQL query (use when model methods are not sufficient)
+    public static function SQL($consult) {
+        $query = $consult;
+        $result = self::querySQL($query);
+        return $result;
+    }
+
     // Create new record
     public function create() {
         // Sanitize the data

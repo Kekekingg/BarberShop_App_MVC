@@ -11,8 +11,12 @@
 
     a {
         color: v.$white;
+        background-color: v.$blue;
+        padding: 1rem;
+        border-radius: 1rem;
         display: block; /* force the line break */
         margin-bottom: calc(v.$separation / 1.5);
         text-align: center;
     }
+
 }

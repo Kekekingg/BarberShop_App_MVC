@@ -1,11 +1,9 @@
 <h1 class="page-name">Create A New Appointment</h1>
 <p class="page-description">Select your services below enter your details</p>
 
-<div class="bar">
-    <p>Hi: <?php echo $name ?? ''; ?></p>
-
-    <a class="button" href="/logout">Logout</a>
-</div>
+<?php 
+    include_once __DIR__ . '/../templates/bar.php';
+?>
 
 <div id="app">
     <nav class="tabs">

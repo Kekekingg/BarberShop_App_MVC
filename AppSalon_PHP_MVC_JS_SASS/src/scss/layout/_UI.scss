@@ -26,9 +26,8 @@
         margin: 0 auto;
         padding: 3rem 0;
         @include m.tablet {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            overflow: scroll;
+            overflow-x: hidden;
         }
     }
 
