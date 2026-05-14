@@ -53,3 +53,8 @@
             } // End of the foreach ?>
     </ul>
 </div>
+
+<?php 
+    $script = "<script src='build/js/searcher.js'></script>"
+
+?>
