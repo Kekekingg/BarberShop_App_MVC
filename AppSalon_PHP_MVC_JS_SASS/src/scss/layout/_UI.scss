@@ -13,11 +13,8 @@
         background-image: url(../img/1.jpg);
         background-size: cover;
         background-position: center center;
-        margin-right: 2rem;
         @include m.tablet {
-            min-height: 100vh;
-            background-position: center center;
-            background-size: cover;
+            height: auto;
         }
     }
 
@@ -27,29 +24,46 @@
         padding: 3rem 0;
         @include m.tablet {
             overflow: scroll;
-            overflow-x: hidden;
+            padding-right: 1.5rem;
         }
     }
+}
+.bar {
+    margin: v.$separation 0;
 
-    .bar {
-        margin: v.$separation 0;
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        @include m.tablet {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .button {
+        @include m.button(v.$red, v.$white);
+        margin: 0;
+    }
 
-        .button {
-            @include m.button(v.$red, v.$white);
-            margin: 0;
-        }
+    p {
+        background-color: v.$blue;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        font-weight: v.$bold;
+    }
+}
 
-        p {
-            background-color: v.$blue;
-            border-radius: 1rem;
-            padding: 1.5rem;
-            font-weight: v.$bold;
-        }
+
+.service-bar {
+    margin-bottom: v.$separation;
+
+    @include m.tablet {
+        display: grid;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        margin: 1rem 1rem 1rem 0;
     }
 }

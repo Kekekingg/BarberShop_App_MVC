@@ -8,6 +8,8 @@ use MVC\Router;
 class AdminController {
     public static function index (Router $router) {
 
+        isAdmin();
+
         // If there is no date, generate the server's date (today's date).
         $date = $_GET['date'] ?? date('Y-m-d');
         $dates = explode('-', $date);

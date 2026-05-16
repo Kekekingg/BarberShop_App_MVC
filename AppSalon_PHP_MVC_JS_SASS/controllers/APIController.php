@@ -33,4 +33,14 @@ class APIController {
 
         echo json_encode(['result' => $result]);
     }
+
+    public static function delete () {
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $appointment = Appointment::find($id);
+            $appointment->delete();
+            header('Location:' . $_SERVER['HTTP_REFERER']);
+        }
+    }
 }

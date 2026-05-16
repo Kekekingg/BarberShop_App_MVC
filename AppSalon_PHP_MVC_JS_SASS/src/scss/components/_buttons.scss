@@ -5,3 +5,8 @@
     @include m.button (v.$blue, v.$white);
     border-radius: 10px ;
 }
+
+.delete-button {
+    @include m.button(v.$red, v.$white);
+    border-radius: 1rem;
+}

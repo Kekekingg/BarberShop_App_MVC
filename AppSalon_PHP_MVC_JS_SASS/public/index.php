@@ -39,6 +39,7 @@ $router->get('/admin', [AdminController::class, 'index']);
 // API Appointments
 $router->get('/api/services', [APIController::class, 'index']);
 $router->post('/api/appointment', [APIController::class, 'save']);
+$router->post('/api/delete', [APIController::class, 'delete']);
 
 
 // Check and validate that the routes exist and assign the controller functions

@@ -2,6 +2,7 @@
 
 <?php 
     include_once __DIR__ . '/../templates/bar.php';
+    $appointments = $appointments ?? [];
 ?>
 
 <h2>Search Appointments</h2>
@@ -18,6 +19,12 @@
         </div>
     </form>
 </div>
+
+<?php 
+    if(count($appointments) === 0) {
+        echo "<h2>There are no appointments available on this date</h2>";
+    }
+?>
 
 <div class="admin-apptm">
     <ul class="apptms">
@@ -49,6 +56,19 @@
 
                     if (isLast($current, $next)) { ?>
                         <p class="total">Total: <span>$<?php echo $total; ?></span></p>
+
+                        <form action="/api/delete" method="POST">
+                            <input 
+                                type="hidden"
+                                name="id"
+                                value="<?php echo $appointment->id; ?>"
+                            />
+                            <input 
+                                type="submit" 
+                                class="delete-button"
+                                value="Delete"
+                            />
+                        </form>
                 <?php }
             } // End of the foreach ?>
     </ul>
