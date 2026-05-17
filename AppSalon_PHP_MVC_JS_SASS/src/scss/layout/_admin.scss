@@ -19,3 +19,18 @@
         }
     }
 }
+
+.services {
+    @extend .apptms;
+
+    .actions {
+        margin: 0;
+    }
+    .button,
+    .delete-button {
+        margin: 0;
+    }
+    .a-button {
+        padding: 1.5rem 2rem;
+    }
+}

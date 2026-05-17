@@ -6,6 +6,7 @@ use Controllers\AdminController;
 use Controllers\APIController;
 use Controllers\AppointmentController;
 use Controllers\LoginController;
+use Controllers\ServiceController;
 use MVC\Router;
 
 $router = new Router();
@@ -40,6 +41,14 @@ $router->get('/admin', [AdminController::class, 'index']);
 $router->get('/api/services', [APIController::class, 'index']);
 $router->post('/api/appointment', [APIController::class, 'save']);
 $router->post('/api/delete', [APIController::class, 'delete']);
+
+// Service CRUD
+$router->get('/services', [ServiceController::class, 'index']);
+$router->get('/services/create', [ServiceController::class, 'create']);
+$router->post('/services/create', [ServiceController::class, 'create']);
+$router->get('/services/update', [ServiceController::class, 'update']);
+$router->post('/services/update', [ServiceController::class, 'update']);
+$router->post('/services/delete', [ServiceController::class, 'delete']);
 
 
 // Check and validate that the routes exist and assign the controller functions

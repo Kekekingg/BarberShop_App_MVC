@@ -24,7 +24,12 @@
         padding: 3rem 0;
         @include m.tablet {
             overflow: scroll;
-            padding-right: 1.5rem;
+            padding-right: 1rem;
+            -ms-overflow-style: none;
+        }
+        
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
 }

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function starApp () {
-    searchByDate() ;
+    searchByDate();
 }
 
 function searchByDate () {
