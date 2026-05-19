@@ -20,14 +20,14 @@ class Email {
         // Create the email object
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '1aec537547bfb6';
-        $mail->Password = '2e759e6ba294d8';
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
-        $mail->setFrom('accounts@appsalon.com');
-        $mail->addAddress('accounts@appsalon.com', 'AppSalon.com');
+        $mail->setFrom('accounts@appsalon.com', 'AppSalon.com');
+        $mail->addAddress($this->email, $this->name);
         $mail->Subject = 'Confirm your account';
 
         // Set HTML
@@ -36,7 +36,7 @@ class Email {
 
         $content = "<html>";
         $content .= "<p><strong>Hello " . $this->name . " </strong>You have created your account, you just need to confirm it by clicking the following link</p>";
-        $content .= "<p>Click here: <a href='http://localhost:3000/confirm-account?token=" . $this->token . "'>Confirm Account</a> </p>";
+        $content .= "<p>Click here: <a href='". $_ENV['APP_URL'] . "/confirm-account?token=" . $this->token . "'>Confirm Account</a> </p>";
         $content .= "<p>If you did not request this account, you can ignore this message</p>";
         $content .= "</html>";
 
@@ -50,14 +50,14 @@ class Email {
         // Create the email object
         $mail = new PHPMailer();
         $mail->isSMTP();
-        $mail->Host = 'sandbox.smtp.mailtrap.io';
+        $mail->Host = $_ENV['EMAIL_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '1aec537547bfb6';
-        $mail->Password = '2e759e6ba294d8';
+        $mail->Port = $_ENV['EMAIL_PORT'];
+        $mail->Username = $_ENV['EMAIL_USER'];
+        $mail->Password = $_ENV['EMAIL_PASS'];
 
-        $mail->setFrom('accounts@appsalon.com');
-        $mail->addAddress('accounts@appsalon.com', 'AppSalon.com');
+        $mail->setFrom('accounts@appsalon.com', 'AppSalon.com');
+        $mail->addAddress($this->email, $this->name);
         $mail->Subject = 'Reset your password';
 
         // Set HTML
@@ -66,7 +66,7 @@ class Email {
 
         $content = "<html>";
         $content .= "<p><strong>Hello " . $this->name . " </strong>You have requested to reset your password, please follow the link below to do so.</p>";
-        $content .= "<p>Click here: <a href='http://localhost:3000/recover?token=" . $this->token . "'>Reset Password</a> </p>";
+        $content .= "<p>Click here: <a href='". $_ENV['APP_URL'] . "/recover?token=" . $this->token . "'>Reset Password</a> </p>";
         $content .= "<p>If you did not request this account, you can ignore this message</p>";
         $content .= "</html>";
 

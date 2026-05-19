@@ -112,7 +112,7 @@ function nextPage () {
 
 async function consultAPI () {
     try {
-        const url = 'http://localhost:3000/api/services';
+        const url = `${location.origin}/api/services`;
         const result = await fetch(url);
         const services = await result.json();
         showServices(services);
@@ -329,7 +329,7 @@ async function bookAppointment() {
 
     try {
         // API Request
-        const url = 'http://localhost:3000/api/appointment';
+        const url = `${location.origin}/api/appointment`;
 
         // The body identifies the existence of the formdata
         const response = await fetch(url, {
