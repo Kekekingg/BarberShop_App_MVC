@@ -1,6 +1,6 @@
 # BarberShop_App_MVC
-✂️ General Description of Barbershop App MVC
-This project is a Barbershop Management MVC Application designed to provide a modern and efficient digital solution for barber shops.
+✂️ General Description
+- This project is a Barbershop Management MVC Application designed to provide a modern and efficient digital solution for barber shops.
 
 💈 Services Offered  
 Customers can explore and select from a wide range of services, including haircuts for children 👦 and adults 👨, beard trims 🧔, and other grooming options. Each service is clearly defined with its own pricing 💵 and description, ensuring transparency and ease of choice.
