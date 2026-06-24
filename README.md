@@ -1,38 +1,62 @@
-# 💈 Barbershop Management MVC App
+# AppSalon PHP MVC + JavaScript + SASS
 
-Web application developed with **PHP & MySQL** using the **MVC pattern**, designed for managing appointments, clients, and services in a barbershop.  
-Includes secure authentication, full CRUD operations, and an admin panel.
-
----
-
-## 🖼️ Preview
-
-| Login                | Dashboard                  |
-| -------------------- | -------------------------- |
-| ![login](img/login.png) | ![dashboard](img/dashboard.png) |
+Web application for barbershop appointment management, developed with PHP following the MVC pattern, MySQL, JavaScript, and SASS.  
+The system allows users to register, log in, book appointments, and administrators to manage daily schedules.
 
 ---
 
-## ⚙️ Requirements
+## Main Features
 
-- PHP 8.1+
-- MySQL 8+
-- Composer (if external dependencies are used)
-- Local server (XAMPP, Laragon, etc.)
+- User registration with email account confirmation.  
+- Login and password recovery.  
+- Appointment booking for available services.  
+- Admin panel to view and manage daily appointments.  
+- Service management from the admin module.  
+- Responsive design with styles built in SASS.  
+- Email sending with PHPMailer.  
 
 ---
 
-## 🚀 Installation
+## Technologies Used
 
-```bash
-# Clone the repository
-git clone https://github.com/Kekekingg/BarberShop_App_MVC.git
-cd BarberShop_App_MVC
+- PHP 8+  
+- MySQL  
+- Composer  
+- MVC (custom architecture)  
+- JavaScript  
+- SASS  
+- Gulp  
+- PHPMailer  
+- Dotenv  
 
-# Configure database
-import barber.sql into MySQL
+---
 
-# Adjust credentials in config/db.php
+## Project Structure
 
-# Start local server
-php -S localhost:8000 -t public
+- **controllers/**: route controllers and business logic.  
+- **models/**: data models and database access logic.  
+- **views/**: user interface templates.  
+- **includes/**: global configuration, database connection, and environment variables.  
+- **public/**: application entry point and public resources.  
+- **src/**: source files for styles and JavaScript.  
+- **tests/**: basic project tests.  
+
+---
+
+## Prerequisites
+
+- PHP 8 or higher  
+- Composer  
+- Node.js and npm  
+- MySQL  
+- Local server such as XAMPP, WAMP, or Laragon  
+
+---
+
+## Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone <repository-url>
+   cd AppSalon_PHP_MVC_JS_SASS
