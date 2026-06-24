@@ -9,8 +9,7 @@ The system allows users to register, log in, book appointments, and administrato
 
 | Login                | Dashboard                  |
 | -------------------- | -------------------------- |
-| ![login](<img width="1931" height="1181" alt="image" src="https://github.com/user-attachments/assets/4145da36-2e48-451a-9940-20b45915e6f0" /> )|
-| ![dashboard](<img width="1262" height="1287" alt="image" src="https://github.com/user-attachments/assets/5ee172e0-4ea2-4100-be5a-265af507a561" />)|
+| ![login](<img width="1921" height="811" alt="image" src="https://github.com/user-attachments/assets/4f37e8e3-7f71-4b4f-bf79-1e577437b31a" />) | ![dashboard](<img width="1262" height="1287" alt="image" src="https://github.com/user-attachments/assets/48178f0c-5d99-4a51-a846-967aba6c30ac" />) |
 
 ---
 
