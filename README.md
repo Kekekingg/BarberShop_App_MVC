@@ -48,7 +48,7 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
-## Project Structure
+## Project Structure - MVC
 
 - **controllers/**: route controllers and business logic.  
 - **models/**: data models and database access logic.  
@@ -68,3 +68,60 @@ Admin:
 Client:  
 📧 correo2@correo.com
 🔑 123456
+
+---
+
+## Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone <repository-url>
+   cd AppSalon_PHP_MVC_JS_SASS
+   ```
+
+2. Install PHP dependencies:
+
+   ```bash
+   composer install
+   ```
+
+3. Install frontend dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Configure environment variables in the includes/.env file with your database and email credentials.
+
+5. Create the database in MySQL and adjust the connection according to your environment.
+
+6. Compile frontend asset:
+
+   ```bash
+   npm run build
+   ```
+
+   For development with hot reload:
+
+   ```bash
+   npm run dev
+   ```
+
+7. Run the project from your local server and access the public folder.
+
+## Usage
+- Users can create an account and confirm access via email.
+
+- Once authenticated, they can schedule available services.
+
+- Administrators can view registered appointments for a specific date and manage system services.
+
+## Environment Variables
+The project uses a .env file inside the includes/ folder to define the following:
+
+- Database host
+- MySQL username and password
+- Database name
+- SMTP configuration for emails
+- Base URL of the application
