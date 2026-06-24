@@ -1,17 +1,38 @@
-# BarberShop - PHP MVC
-✂️ General Description
-A modern MVC web application for barbershop management. Includes appointment scheduling, client accounts, secure authentication, and service tracking.
+# 💈 Barbershop Management MVC App
 
-💈 Services Offered  
-Customers can explore and select from a wide range of services, including haircuts for children and adults, beard trims, and other grooming options. Each service is clearly defined with its own pricing and description, ensuring transparency and ease of choice.
+Web application developed with **PHP & MySQL** using the **MVC pattern**, designed for managing appointments, clients, and services in a barbershop.  
+Includes secure authentication, full CRUD operations, and an admin panel.
 
-👤 User Accounts  
-The system enables users to create personal accounts, which serve as a record of their selected services and appointment history. This improves customer experience by offering personalized tracking and helps the barbershop maintain an organized database.
+---
 
-🔐 Security & Password Recovery  
-To enhance security, the application includes a password recovery mechanism. In case a client forgets their password, the system generates secure tokens to facilitate safe and reliable resets.
+## 🖼️ Preview
 
-⚙️ MVC Architecture  
-Built using the MVC (Model-View-Controller) architecture, the project emphasizes clean separation of concerns, scalability, and maintainability.
+| Login                | Dashboard                  |
+| -------------------- | -------------------------- |
+| ![login](img/login.png) | ![dashboard](img/dashboard.png) |
 
-<img width="1920" height="1280" alt="Barber Shop Login" src="https://github.com/user-attachments/assets/9764b7a2-f0dc-443d-bd9d-473c8845a19d" />
+---
+
+## ⚙️ Requirements
+
+- PHP 8.1+
+- MySQL 8+
+- Composer (if external dependencies are used)
+- Local server (XAMPP, Laragon, etc.)
+
+---
+
+## 🚀 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Kekekingg/BarberShop_App_MVC.git
+cd BarberShop_App_MVC
+
+# Configure database
+import barber.sql into MySQL
+
+# Adjust credentials in config/db.php
+
+# Start local server
+php -S localhost:8000 -t public
