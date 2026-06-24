@@ -1,4 +1,4 @@
-# AppSalon PHP MVC + JavaScript + SASS
+# Barbershop PHP MVC
 
 Web application for barbershop appointment management, developed with PHP following the MVC pattern, MySQL, JavaScript, and SASS.  
 The system allows users to register, log in, book appointments, and administrators to manage daily schedules.
@@ -22,17 +22,17 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
-- PHP 8+  
-- MySQL  
-- Composer  
-- MVC (custom architecture)  
-- JavaScript  
-- SASS  
-- Gulp  
-- PHPMailer  
-- Dotenv  
+![PHP](https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white)
+![Composer](https://img.shields.io/badge/Composer-885630?logo=composer&logoColor=white)
+![MVC](https://img.shields.io/badge/MVC-000000?logo=codeigniter&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![SASS](https://img.shields.io/badge/SASS-CC6699?logo=sass&logoColor=white)
+![Gulp](https://img.shields.io/badge/Gulp-CF4647?logo=gulp&logoColor=white)
+![PHPMailer](https://img.shields.io/badge/PHPMailer-000000?logo=maildotru&logoColor=white)
+![Dotenv](https://img.shields.io/badge/Dotenv-ECD53F?logo=dotenv&logoColor=black)
 
 ---
 
