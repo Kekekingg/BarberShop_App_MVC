@@ -5,15 +5,22 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
-## Main Features
+## 🖼️ Preview
 
-- User registration with email account confirmation.  
-- Login and password recovery.  
-- Appointment booking for available services.  
-- Admin panel to view and manage daily appointments.  
-- Service management from the admin module.  
-- Responsive design with styles built in SASS.  
-- Email sending with PHPMailer.  
+| Login                | Dashboard                  |
+| -------------------- | -------------------------- |
+| ![login](<img width="1931" height="1181" alt="image" src="https://github.com/user-attachments/assets/4145da36-2e48-451a-9940-20b45915e6f0" />
+) | ![dashboard](<img width="1262" height="1287" alt="image" src="https://github.com/user-attachments/assets/5ee172e0-4ea2-4100-be5a-265af507a561" />
+) |
+
+---
+
+## ⚙️ Requirements
+
+- PHP 8.1+
+- MySQL 8+
+- Composer (if external dependencies are used)
+- Local server (XAMPP, Laragon, etc.)
 
 ---
 
@@ -31,6 +38,18 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
+## Main Features
+
+- User registration with email account confirmation.  
+- Login and password recovery.  
+- Appointment booking for available services.  
+- Admin panel to view and manage daily appointments.  
+- Service management from the admin module.  
+- Responsive design with styles built in SASS.  
+- Email sending with PHPMailer.
+
+---
+
 ## Project Structure
 
 - **controllers/**: route controllers and business logic.  
@@ -43,20 +62,11 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
-## Prerequisites
+🔐 Example Access
+Admin:  
+📧 admin@admin.com
+🔑 1234567
 
-- PHP 8 or higher  
-- Composer  
-- Node.js and npm  
-- MySQL  
-- Local server such as XAMPP, WAMP, or Laragon  
-
----
-
-## Installation
-
-1. Clone this repository:
-
-   ```bash
-   git clone <repository-url>
-   cd AppSalon_PHP_MVC_JS_SASS
+Client:  
+📧 correo2@correo.com
+🔑 123456
