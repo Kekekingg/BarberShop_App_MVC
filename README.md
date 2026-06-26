@@ -48,6 +48,15 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
+## Usage
+- Users can create an account and confirm access via email.
+
+- Once authenticated, they can schedule available services.
+
+- Administrators can view registered appointments for a specific date and manage system services.
+
+---
+
 ## Project Structure - MVC
 
 - **controllers/**: route controllers and business logic.  
@@ -110,12 +119,7 @@ Client:
 
 7. Run the project from your local server and access the public folder.
 
-## Usage
-- Users can create an account and confirm access via email.
-
-- Once authenticated, they can schedule available services.
-
-- Administrators can view registered appointments for a specific date and manage system services.
+---
 
 ## Environment Variables
 The project uses a .env file inside the includes/ folder to define the following:
