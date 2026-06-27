@@ -69,14 +69,24 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
-🔐 Example Access
-Admin:  
-📧 admin@admin.com
-🔑 1234567
+🌐 Main Routes
 
-Client:  
-📧 correo2@correo.com
-🔑 123456
+- / → Home
+- /properties → Properties listing
+- /listing → Property details
+- /contact → Contact form
+- /login → Admin login
+- /admin → Admin panel
+  
+---
+
+🛠️ Admin Panel Features
+Once authenticated, you will be able to:
+
+- Manage properties
+- Create and edit sellers
+- Upload property images
+- View messages and manage site content
 
 ---
 
@@ -118,6 +128,18 @@ Client:
    ```
 
 7. Run the project from your local server and access the public folder.
+
+---
+⚙️ Local Execution
+Start the PHP server pointing to the public directory:
+
+```bash
+php -S localhost:8000 -t public
+```
+Then open in your browser:
+```bash
+http://localhost:8000
+```
 
 ---
 
@@ -202,6 +224,23 @@ erDiagram
         int appointID FK
         int serviceId FK
     }
+
+---
+
+🔑 Admin Panel Access
+To access the admin panel, create a user in the users table with a password hashed using password_hash().
+Set the admin field to 1 (instead of 0) — this is useful if you want to test the different panels (client vs. admin).
+
+---
+
+🔐 Example Access for the counts already created
+Admin:  
+📧 admin@admin.com
+🔑 1234567
+
+Client:  
+📧 correo2@correo.com
+🔑 123456
 
 ---
 ## Environment Variables
