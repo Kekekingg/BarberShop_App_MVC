@@ -121,6 +121,89 @@ Client:
 
 ---
 
+🗄️ Database (MySQL)
+The project is already deployed with its database configured on the server.
+⚠️ The following script is optional and only needed if you want to run the project locally. It is just one way to create the tables in a similar structure.
+
+-- Users table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(60) NOT NULL,
+    last_name VARCHAR(60) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(15),
+    admin TINYINT(1) DEFAULT 0,       -- 0 = client, 1 = admin (this is useful if you want to test different panels)
+    confirmed TINYINT(1) DEFAULT 0,   -- confirmation status
+    token VARCHAR(50)                 -- password recovery token
+);
+
+-- Services table
+CREATE TABLE services (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    servicename VARCHAR(100) NOT NULL,
+    price DECIMAL(6,2) NOT NULL       -- service price
+);
+
+-- Appointments table
+CREATE TABLE appointments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    userId INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES users(id)
+);
+
+-- Appointment-Services table (N:M relationship)
+CREATE TABLE apptservices (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    appointID INT NOT NULL,
+    serviceId INT NOT NULL,
+    FOREIGN KEY (appointID) REFERENCES appointments(id),
+    FOREIGN KEY (serviceId) REFERENCES services(id)
+);
+
+
+---
+
+📊 Relationships Diagram
+erDiagram
+    USERS ||--o{ APPOINTMENTS : "has"
+    APPOINTMENTS ||--o{ APPTSERVICES : "includes"
+    SERVICES ||--o{ APPTSERVICES : "belongs"
+
+    USERS {
+        int id PK
+        varchar name
+        varchar last_name
+        varchar email
+        varchar password
+        varchar phone
+        boolean admin
+        boolean confirmed
+        varchar token
+    }
+
+    SERVICES {
+        int id PK
+        varchar servicename
+        decimal price
+    }
+
+    APPOINTMENTS {
+        int id PK
+        date date
+        time time
+        int userId FK
+    }
+
+    APPTSERVICES {
+        int id PK
+        int appointID FK
+        int serviceId FK
+    }
+
+---
 ## Environment Variables
 The project uses a .env file inside the includes/ folder to define the following:
 
