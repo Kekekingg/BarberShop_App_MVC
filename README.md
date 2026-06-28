@@ -147,8 +147,8 @@ http://localhost:8000
 The project is already deployed with its database configured on the server.
 ⚠️ The following script is optional and only needed if you want to run the project locally. It is just one way to create the tables in a similar structure.
 
--- Users table
-CREATE TABLE users (
+- ```bash Users table
+  CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(60) NOT NULL,
     last_name VARCHAR(60) NOT NULL,
@@ -158,7 +158,8 @@ CREATE TABLE users (
     admin TINYINT(1) DEFAULT 0,       -- 0 = client, 1 = admin (this is useful if you want to test different panels)
     confirmed TINYINT(1) DEFAULT 0,   -- confirmation status
     token VARCHAR(50)                 -- password recovery token
-);
+  );
+  ```
 
 -- Services table
 CREATE TABLE services (
