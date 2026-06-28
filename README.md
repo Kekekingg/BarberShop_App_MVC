@@ -147,7 +147,7 @@ http://localhost:8000
 The project is already deployed with its database configured on the server.
 ⚠️ The following script is optional and only needed if you want to run the project locally. It is just one way to create the tables in a similar structure.
 
-- ```bash Users table
+```bash Users table
   CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(60) NOT NULL,
@@ -159,16 +159,15 @@ The project is already deployed with its database configured on the server.
     confirmed TINYINT(1) DEFAULT 0,   -- confirmation status
     token VARCHAR(50)                 -- password recovery token
   );
-  ```
 
--- Services table
+Services table
 CREATE TABLE services (
     id INT AUTO_INCREMENT PRIMARY KEY,
     servicename VARCHAR(100) NOT NULL,
     price DECIMAL(6,2) NOT NULL       -- service price
 );
 
--- Appointments table
+Appointments table
 CREATE TABLE appointments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     date DATE NOT NULL,
@@ -177,7 +176,7 @@ CREATE TABLE appointments (
     FOREIGN KEY (userId) REFERENCES users(id)
 );
 
--- Appointment-Services table (N:M relationship)
+Appointment-Services table (N:M relationship)
 CREATE TABLE apptservices (
     id INT AUTO_INCREMENT PRIMARY KEY,
     appointID INT NOT NULL,
@@ -185,7 +184,7 @@ CREATE TABLE apptservices (
     FOREIGN KEY (appointID) REFERENCES appointments(id),
     FOREIGN KEY (serviceId) REFERENCES services(id)
 );
-
+  ```
 
 ---
 
