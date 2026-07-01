@@ -13,6 +13,16 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
+## 📘 Documentation
+Detailed documentation is available in the [`docs/`](docs/) folder:
+
+- [Architecture](docs/ARCHITECTURE.md) → Explains the MVC structure, folder roles, and internal flow.
+- [API Reference](docs/API_REFERENCE.md) → Endpoints, request/response examples, and usage flow.
+- [Testing Guide](docs/TESTING.md) → How to run tests, dependencies, and examples.
+- [Troubleshooting](docs/TROUBLESHOOTING.md) → Common errors and quick solutions.
+
+---
+
 ## ⚙️ Requirements
 
 - PHP 8.1+
