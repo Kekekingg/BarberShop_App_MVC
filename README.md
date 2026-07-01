@@ -66,17 +66,6 @@ The system allows users to register, log in, book appointments, and administrato
 - **public/**: application entry point and public resources.  
 - **src/**: source files for styles and JavaScript.  
 - **tests/**: basic project tests.  
-
----
-
-🌐 Main Routes
-
-- / → Home
-- /properties → Properties listing
-- /listing → Property details
-- /contact → Contact form
-- /login → Admin login
-- /admin → Admin panel
   
 ---
 
