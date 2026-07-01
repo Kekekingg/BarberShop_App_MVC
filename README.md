@@ -17,9 +17,9 @@ The system allows users to register, log in, book appointments, and administrato
 Detailed documentation is available in the [`docs/`](docs/) folder:
 
 - [Architecture](docs/ARCHITECTURE.md) → Explains the MVC structure, folder roles, and internal flow.
-- [API_Reference](docs/API_REFERENCE.md) → Endpoints, request/response examples, and usage flow.
-- [Testing Guide](docs/TESTING.md) → How to run tests, dependencies, and examples.
-- [Troubleshooting](docs/TROUBLESHOOTING.md) → Common errors and quick solutions.
+- [API_Reference](docs/API_Reference.md) → Endpoints, request/response examples, and usage flow.
+- [Testing Guide](docs/Testing.md) → How to run tests, dependencies, and examples.
+- [Troubleshooting](docs/Troubleshooting.md) → Common errors and quick solutions.
 
 ---
 
