@@ -574,6 +574,8 @@ Open a GitHub issue with:
 - Contents of the PHP error log around the time of the error
 - Whether the issue occurs on a fresh `composer install` + `npm run build`
 
+[← Back to main README](../README.md)
+
 ---
 
 ← [Back to README](../README.md) | [Architecture](ARCHITECTURE.md)
