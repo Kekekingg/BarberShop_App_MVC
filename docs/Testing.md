@@ -106,3 +106,5 @@ Until automated coverage expands beyond the email test, manually verify:
 
 ---
 *Generated 2026-06-30 from project structure and commit history. Update as the test suite grows.*
+
+[← Back to main README](../README.md)
