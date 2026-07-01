@@ -13,6 +13,11 @@ The system allows users to register, log in, book appointments, and administrato
 
 ---
 
+## 🔗 Live Project 
+[barbershop-app-mvc.alwaysdata.net](https://barbershop-app-mvc.alwaysdata.net/)
+
+---
+
 ## 📘 Documentation
 Detailed documentation is available in the [`docs/`](docs/) folder:
 
